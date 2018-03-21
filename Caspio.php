@@ -14,12 +14,14 @@ class Caspio
 
     protected $logger;
 
-    public function __construct($tokenManager, $rest_url)
+    /*
+     * Pass in the Caspio base REST URL. Also need to pass in
+     * a logger like monolog.
+     */
+    public function __construct($tokenManager, $rest_url, $logger)
     {
         $this->rest_url = $rest_url;
         $this->tokenManager = $tokenManager;
-
-        global $logger;
         $this->logger = $logger;
 
     }
@@ -28,7 +30,7 @@ class Caspio
     {
         $response_type = strtolower($response_type);
         switch ($response_type) {
-            case 'xml': 
+            case 'xml':
                 $this->response_format_header = 'application/xml';
                 break;
             case 'json':
