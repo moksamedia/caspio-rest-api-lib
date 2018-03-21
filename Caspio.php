@@ -14,8 +14,6 @@ class Caspio
 
     protected $logger;
 
-    const SKBM_REST_UserInfo_Url = "https://b5.caspio.com/dp.asp?cbqe=";
-
     public function __construct($tokenManager, $rest_url)
     {
         $this->rest_url = $rest_url;
